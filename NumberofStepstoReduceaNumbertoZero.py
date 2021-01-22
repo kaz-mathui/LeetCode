@@ -1,10 +1,14 @@
 class Solution:
+    # def numberOfSteps (self, num: int) -> int:
+    #     count = 0
+    #     while num > 0:
+    #         if num % 2 == 0:
+    #             num /= 2
+    #         else:
+    #             num -= 1
+    #         count += 1
+    #     return count
     def numberOfSteps (self, num: int) -> int:
-        count = 0
-        while num > 0:
-            if num % 2 == 0:
-                num /= 2
-            else:
-                num -= 1
-            count += 1
-        return count
+        print(bin(num))
+        print(len(bin(num)))
+        return len(bin(num)) + bin(num).count('1') - 3
