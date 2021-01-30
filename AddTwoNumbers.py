@@ -3,6 +3,7 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+from decimal import Decimal
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         l1_list = []
@@ -21,16 +22,17 @@ class Solution:
             l2_num += l2_list[i] * (10 ** i)
         total = l1_num + l2_num
         digits = len(str(total))
-        node = ListNode()
-        head = ListNode(total % 10,node)
-        print(total)
+        head = ListNode()
+        node = head
+        # print(total)
         for i in range(digits):
-            total = int(total / 10)
-            node.val = total % 10
+            node.val = int(total % 10)
+            total -= int(total % 10)
             if total < 10:
                 break
             node.next = ListNode()
             node = node.next
+            total = int(str(total)[:-1])
         return head
             
         
