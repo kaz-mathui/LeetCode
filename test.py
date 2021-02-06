@@ -1,7 +1,7 @@
 
 
 def test():
-    return  len([[]])
+    return  True and False
 
 if __name__ == '__main__':
     print(test())
