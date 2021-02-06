@@ -1,7 +1,9 @@
 
+pre_idx = 0
 
 def test():
-    return  True and False
+    
+    return pre_idx
 
 if __name__ == '__main__':
     print(test())
