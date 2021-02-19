@@ -43,7 +43,7 @@ class Solution:
             second_position = second_position.next
 
         # Restore the list and return the result.
-        first_half_end.next = self.reverse_list(second_half_start)
+        # first_half_end.next = self.reverse_list(second_half_start)
         return result    
 
     def end_of_first_half(self, head):
