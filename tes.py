@@ -1,2 +1,2 @@
-str = 5 = 4
-print(str)
+str = "test"
+print(str[0:54132])
