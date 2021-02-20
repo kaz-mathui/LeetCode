@@ -9,13 +9,14 @@ class Solution:
             return 0
         lists = []
         while head:
-            lists += head.val,
+            lists += str(head.val),
             head = head.next
         ans = 0
         print(lists)
-        for i in range(len(lists)):
-            print(lists[i])
+        return int(''.join(lists),2)
+#         for i in range(len(lists)):
+#             print(lists[i])
             
-            ans += lists[i] * 2**(len(lists)-i-1)
-            print(ans)
-        return ans
+#             ans += lists[i] * 2**(len(lists)-i-1)
+#             print(ans)
+#         return ans
