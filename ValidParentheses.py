@@ -20,9 +20,6 @@ class Solution(object):
 
                 # Pop the topmost element from the stack, if it is non empty
                 # Otherwise assign a dummy value of '#' to the top_element variable
-                # stack = [1]
-                # num = 1 if stack else '#'
-                # print(num)
                 top_element = stack.pop() if stack else '#'
 
                 # The mapping for the opening bracket in our hash and the top
@@ -38,3 +35,25 @@ class Solution(object):
         return not stack
 
 
+
+
+
+
+
+
+
+#         lists = list(s)
+#         print(lists)
+#         bal = 0
+#         bal_sumi = 0
+#         bal_mid = 0
+#         for c in lists:
+#             print(c)
+#             if c == '(': bal += 1
+#             elif c == ')': bal -= 1
+#             elif c == '[': bal_sumi += 1
+#             elif c == ']': bal_sumi -= 1
+#             elif c == '{': bal_mid += 1
+#             elif c == '}': bal_mid -= 1
+#             if bal < 0 or bal_sumi < 0 or bal_mid < 0: return False
+#         return bal == 0 and bal_sumi == 0 and bal_mid == 0
