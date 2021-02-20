@@ -1,2 +1,5 @@
-str = 5 = 4
+# リストへ挿入方法
+str = []
+str += 3,
+str += 4,
 print(str)

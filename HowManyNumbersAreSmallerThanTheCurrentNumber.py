@@ -12,14 +12,21 @@
 #                 return_counts.append(sum(counts[:nn]))
 #         return return_counts
 
+# class Solution:
+#     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+#         lookup = {}
+#         print(lookup)
+#         print(sorted(nums))
+#         for i, v in enumerate(sorted(nums)):
+#             if v in lookup:
+#                 continue
+#             lookup[v] = i
+#             print(lookup)
+#         return [lookup[num] for num in nums]
+
+
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
-        lookup = {}
-        print(lookup)
-        print(sorted(nums))
-        for i, v in enumerate(sorted(nums)):
-            if v in lookup:
-                continue
-            lookup[v] = i
-            print(lookup)
-        return [lookup[num] for num in nums]
+        sorted_nums = sorted(nums)
+        
+        return [sorted_nums.index(num) for num in nums]
