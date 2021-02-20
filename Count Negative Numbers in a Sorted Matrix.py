@@ -7,5 +7,8 @@ class Solution:
             for j in range(len(grid[i])):
                 if grid[i][j] < 0:
                     ans += len(grid[i]) - j
+        
                     break
+        lists = list(itertools.chain.from_iterable(grid))
+        print(lists)
         return ans
