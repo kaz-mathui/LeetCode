@@ -11,7 +11,7 @@ class Solution:
             elif remain < 0:
                 # exceed the scope, stop exploration.
                 return
-
+            print(candidates)
             for i in range(start, len(candidates)):
                 # add the number into the combination
                 comb.append(candidates[i])
