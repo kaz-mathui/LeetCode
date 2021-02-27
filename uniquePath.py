@@ -1,30 +1,3 @@
-# class Solution:
-#     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
-#         m = len(obstacleGrid)+1
-#         n = len(obstacleGrid[0])+1
-#         result_list = []
-#         result_list.append([1] * n)
-#         count = 0
-#         # print(result_list)
-#         for i in range(m):
-#             n_list = []
-#             n_list.append(1)
-#             for j in range(n):
-#                 if i == 0 or j == 0:
-#                     n_list.append(1)
-#                 elif obstacleGrid[i-1][j-1] == 1:
-#                     n_list.append(0)
-#                     # count +=1
-#                 # elif (i== 0 or j == 0) and obstacleGrid[i-1][j-1] == 0:
-#                 #     result_list[i][j] = 1
-#                 else:
-#                     n_list.append(result_list[i-1][j]+n_list[j-1])
-#                 # print(result_list)
-#             result_list.append(n_list)
-#         # print(m,n)
-#         print(result_list)
-#         return result_list[m-1][n-1]
-
 
 class Solution(object):
     def uniquePathsWithObstacles(self, obstacleGrid):
@@ -51,7 +24,7 @@ class Solution(object):
         # Filling the values for the first row        
         for j in range(1, n):
             obstacleGrid[0][j] = int(obstacleGrid[0][j] == 0 and obstacleGrid[0][j-1] == 1)
-
+        print(obstacleGrid)
         # Starting from cell(1,1) fill up the values
         # No. of ways of reaching cell[i][j] = cell[i - 1][j] + cell[i][j - 1]
         # i.e. From above and left.
