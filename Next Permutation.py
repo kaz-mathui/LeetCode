@@ -1,19 +1,20 @@
-class Solution(object):
+class Solution:
     def nextPermutation(self, nums):
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        n = len(nums)
-        for i in range(n-1, 0, -1):
-            if nums[i] > nums[i-1]:
-                j = i
-                while j < n and nums[j] > nums[i-1]:
-                    idx = j
-                    j += 1
-                nums[idx], nums[i-1] = nums[i-1], nums[idx]
-                for k in range((n-i)//2):
-                    nums[i+k], nums[n-1-k] = nums[n-1-k], nums[i+k]
-                break
-        else:
-            nums.reverse()
+        # 1. get the start index of non-increasing sequence from tail
+        # 2. swap
+        # 3. sort the non-increasing
+        if not nums: return nums
+        l = len(nums)
+        i, j = l - 2, l - 1
+        while i >= 0 and nums[i] >= nums[i+1]:
+            i -= 1
+        
+        while j > i and nums[j] <= nums[i]:
+            j -= 1
+        print(i,j)
+        nums[i], nums[j] = nums[j], nums[i]
+        nums[i+1:] = sorted(nums[i+1:])

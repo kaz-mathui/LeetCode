@@ -12,12 +12,10 @@ class Solution:
                     curr = w
             return daysRequired
         
-        
-        
         bottom = max(weights)
         top = sum(weights)
         ans = 0
-        while bottom <= top:
+        while bottom < top:
             mid = (bottom + top)//2
             days = numberOfDaysNeededWithCapacity(weights,mid)
             curr_weight = 0
@@ -25,8 +23,8 @@ class Solution:
             if days > D:
                 bottom = mid + 1
             else:
-                top = mid - 1
+                top = mid
 
-        return top + 1
+        return top
         
         
