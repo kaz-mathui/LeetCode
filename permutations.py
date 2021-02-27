@@ -24,8 +24,28 @@
 
 
 
-class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        return list(itertools.permutations(nums))
-# Runtime: 36 ms, faster than 87.99% of Python3 online submissions for Permutations.
+# class Solution:
+#     def permute(self, nums: List[int]) -> List[List[int]]:
+#         return list(itertools.permutations(nums))
+# # Runtime: 36 ms, faster than 87.99% of Python3 online submissions for Permutations.
 # Memory Usage: 14.1 MB, less than 5.36% of Python3 online submissions for Permutations.
+
+
+
+
+
+
+
+class Solution:
+    def permute(self, nums) -> List[List[int]]:
+        result =[]
+        if len(nums) <= 1:
+            return [nums]
+        
+        for perm in self.permute(nums[1:]):
+            print(perm)
+            for i in range(len(nums)):
+                result.append(perm[:i] + nums[0:1] + perm[i:])
+                
+        return result
+        
