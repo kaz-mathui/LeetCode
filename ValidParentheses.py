@@ -1,59 +1,34 @@
+# O(n)の計算量
 class Solution(object):
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
-
-        # The stack to keep track of opening brackets.
+    def isValid(self, s: str) -> bool:
+        # 辞書を閉じ括弧から開き括弧へマッピング
+        bracket_map = {")": "(", "}": "{", "]": "["}
+        # スタックをリストとして初期化
         stack = []
 
-        # Hash map for keeping track of mappings. This keeps the code very clean.
-        # Also makes adding more types of parenthesis easier
-        mapping = {")": "(", "}": "{", "]": "["}
-
-        # For every bracket in the expression.
         for char in s:
-
-            # If the character is an closing bracket
-            if char in mapping:
-
-                # Pop the topmost element from the stack, if it is non empty
-                # Otherwise assign a dummy value of '#' to the top_element variable
-                top_element = stack.pop() if stack else '#'
-
-                # The mapping for the opening bracket in our hash and the top
-                # element of the stack don't match, return False
-                if mapping[char] != top_element:
+            if char in bracket_map:
+                # スタックが空でない場合はポップし、空の場合はダミー値
+                top_element = stack.pop() if stack else None
+                # マッピングが一致しなければ無効
+                if bracket_map[char] != top_element:
                     return False
             else:
-                # We have an opening bracket, simply push it onto the stack.
+                # 開き括弧はスタックにプッシュ
                 stack.append(char)
 
-        # In the end, if the stack is empty, then we have a valid expression.
-        # The stack won't be empty for cases like ((()
+        # スタックが空であれば有効
         return not stack
 
 
+def main():
+    solution = Solution()
+    print(solution.isValid("()"))  # Output: True
+    print(solution.isValid("()[]{}"))  # Output: True
+    print(solution.isValid("(]"))  # Output: False
+    print(solution.isValid("([)]"))  # Output: False
+    print(solution.isValid("{[]}"))  # Output: True
 
 
-
-
-
-
-
-#         lists = list(s)
-#         print(lists)
-#         bal = 0
-#         bal_sumi = 0
-#         bal_mid = 0
-#         for c in lists:
-#             print(c)
-#             if c == '(': bal += 1
-#             elif c == ')': bal -= 1
-#             elif c == '[': bal_sumi += 1
-#             elif c == ']': bal_sumi -= 1
-#             elif c == '{': bal_mid += 1
-#             elif c == '}': bal_mid -= 1
-#             if bal < 0 or bal_sumi < 0 or bal_mid < 0: return False
-#         return bal == 0 and bal_sumi == 0 and bal_mid == 0
+if __name__ == "__main__":
+    main()
